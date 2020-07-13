@@ -81,7 +81,7 @@ void Reading_GNSS() {
 			my_gps.ConfigureLogs("bestposb ontime 0.5");
 			//my_gps.ConfigureLogs("bestvelb ontime 0.5");
 			my_gps.ConfigureLogs("rangeb ontime 0.5");
-			my_gps.ConfigureLogs("gphdtdualantenna ontime 0.2");
+			//my_gps.ConfigureLogs("gphdtdualantenna ontime 0.2");
 			my_gps.ConfigureLogs("bestxyzb ontime 0.5");
 			my_gps.ConfigureLogs("gpsephemb onchanged");
 			my_gps.ConfigureLogs("gloephemerisb onchanged");
