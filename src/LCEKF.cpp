@@ -10,7 +10,7 @@
 int i, j;
 int num_ins=0;
 
-void LCEKF::Configure(Vector3d Bestpos_ECEF_SD, Vector3d Bestvel_ECEF_SD) {
+void LCEKF::Configure() {
   // Observation matrix
   H_matrix_.setZero();
   H_matrix_.block(0,3,6,6) = I6;
@@ -91,8 +91,8 @@ void LCEKF::Update(int num, Vector3d Meas_omega_ib_b, Vector3d Meas_f_ib_b, Vect
     Measurement_Update(Meas_r_eb_e, Meas_v_eb_e);
 
     // Post-priori accel and rotation rate estimate, biases updated in MeasUpdate()
-    Est_f_ib_b_ = Meas_f_ib_b + Est_IMUaBias_;
-    Est_omega_ib_b_ = Meas_omega_ib_b + Est_IMUwBias_;
+    Est_f_ib_b_ = Meas_f_ib_b - Est_IMUaBias_;
+    Est_omega_ib_b_ = Meas_omega_ib_b - Est_IMUwBias_;
   }
 
   // Euler angles from quaternion
